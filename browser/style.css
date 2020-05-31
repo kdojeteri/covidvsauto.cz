@@ -1,0 +1,121 @@
+/*
+$turquoise-green: #bdd9bfff;
+$black-coral: #465362ff;
+$red-ncs: #ba1f33ff;
+$warm-black: #104547ff;
+$white: #ffffffff;
+*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(211, 231, 212);
+    color: #104547;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+    margin: 0;
+    justify-content: space-between;
+}
+
+a, a:hover, a:active, a:visited {
+    color: #104547;
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container > * {
+    margin: 0 20px 20px 20px;
+}
+
+main {
+    max-width: 960px;
+}
+
+
+header {
+    font-size: 21px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+header .counter {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+
+.counter {
+    white-space: nowrap;
+    display: flex;
+    margin-bottom: 4px;
+}
+
+.counter__label, .counter__text {
+    display: block;
+    padding: 8px;
+}
+
+.counter__label {
+    width: 270px;
+
+}
+
+.counter__text {
+    background: white;
+    box-sizing: content-box;
+    width: 3ch;
+    text-align: right;
+}
+
+
+
+.legend {
+    border-collapse: collapse;
+}
+
+.legend td {
+    border: solid transparent;
+    /* border: solid rgba(0, 0, 0, .07); */
+    border-width: 4px 10px;
+}
+
+.legend__header {
+    font-size: small;
+}
+
+.legend__threat-bar {
+    width: 1em; height: 1em;
+    border: 1px solid currentColor;
+}
+
+.legend__region-name {
+    font-weight: 600;
+}
+
+.legend__car-accidents, .legend__covid-19 {
+    text-align: right;
+}
+
+
+
+footer {
+    font-size: small;
+    max-width: 960px;
+    margin: auto;
+    text-align: justify;
+    padding: 10px;
+}
