@@ -4,7 +4,7 @@
   "description": "Protože denní přírůstky nakažených virem COVID-19 jsou v poslední době v řádech desítek a ne stovek, přišlo mi jako fajn nápad srovnat to s počty zraněných v dopravních nehodách.",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node --experimental-modules src/server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/kdojeteri/covidvsauto.cz#readme",
   "dependencies": {
-    "koa": "^2.12.0"
+    "handlebars": "^4.7.6",
+    "koa": "^2.12.0",
+    "node-fetch": "^2.6.0"
   }
 }
