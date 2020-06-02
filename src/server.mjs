@@ -5,6 +5,8 @@ import {data} from './sources/data.mjs';
 import {aktualizuj as updateCovid} from './sources/covid.mjs';
 import {aktualizuj as updateZraneni} from './sources/zraneni.mjs';
 
+var dateFns = require("date-fns")
+
 const app = new Koa();
 
 const indexHtml = readFileSync("browser/index.html");
