@@ -6,7 +6,8 @@ Stránka COVID-19 vs Autonehody si dává za cíl ukazovat poměr mezi zraněný
 
 ## Spolupracovníci:
 * Teri Hornych <kdojeteri@gmail.com>
-* Marek Novotny <novoty.m@seznam.cz>
+* kamil1g <kamil.gruber@seznam.cz> 
+* Marek Novotny <novoty.m@example.com>
 * Helena-git <helium@example.com>
 * Milan Baroš
 
