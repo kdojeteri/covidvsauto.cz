@@ -12,7 +12,7 @@ Stránka COVID-19 vs Autonehody si dává za cíl ukazovat poměr mezi zraněný
 * Milan Baroš
 
 ## TODO:
-* [ ] Vytvořit Koa.js server, který vrací index.html
+* [x] Vytvořit Koa.js server, který vrací index.html
 * [ ] Přidat DNS záznam na covidvsauto.cz
 * [ ] Vypisovat do HTML informace pomocí handlebars.js
 * [ ] Průběžně (každý den) stahovat informace o covid-19 ze včerejška
