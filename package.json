@@ -4,6 +4,7 @@
   "description": "Protože denní přírůstky nakažených virem COVID-19 jsou v poslední době v řádech desítek a ne stovek, přišlo mi jako fajn nápad srovnat to s počty zraněných v dopravních nehodách.",
   "main": "index.js",
   "scripts": {
+    "init": "node --experimental-modules src/initialize.mjs",
     "start": "node --experimental-modules src/server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
