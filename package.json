@@ -1,0 +1,22 @@
+{
+  "name": "covidvsauto.cz",
+  "version": "1.0.0",
+  "description": "Protože denní přírůstky nakažených virem COVID-19 jsou v poslední době v řádech desítek a ne stovek, přišlo mi jako fajn nápad srovnat to s počty zraněných v dopravních nehodách.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kdojeteri/covidvsauto.cz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kdojeteri/covidvsauto.cz/issues"
+  },
+  "homepage": "https://github.com/kdojeteri/covidvsauto.cz#readme",
+  "dependencies": {
+    "koa": "^2.12.0"
+  }
+}
