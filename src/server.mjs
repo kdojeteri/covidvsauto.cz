@@ -32,6 +32,8 @@ async function updateData() {
 
   await updateCovid();
   await updateZraneni();
+
+  console.log("Got data", data);
 }
 
 updateData().then(() => {
