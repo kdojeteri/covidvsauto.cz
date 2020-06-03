@@ -149,8 +149,8 @@ export function makeHtml() {
     const svg = makeSvg();
 
     const templateData = {
-        covid_datum: data.datum_zraneni,
-        nehody_datum: data.datum_covid,
+        covid_datum: data.datum_covid,
+        nehody_datum: data.datum_zraneni,
 
         covid_celkem: Object.values(data.covid).reduce((a, b) => a + b),
         zraneni_celkem: Object.values(data.zraneni).reduce((a, b) => a + b),
