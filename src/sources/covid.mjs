@@ -25,8 +25,9 @@ export async function aktualizuj() {
     const b = new Date();
     const bsub = dateFns.subDays(b, 1);
     var vcera = dateFns.format(bsub, 'yyyy-MM-dd');
+    const datum = dateFns.format(new Date (covid_json.modified), 'dd. MM. yyyy');
 
-    data.datum_covid = covid_json.modified;
+    data.datum_covid = datum;
     
 
     let kody_kraju = ["CZ010", "CZ031", "CZ064", "CZ041", "CZ052", "CZ051", "CZ080", "CZ071", "CZ053", "CZ032", "CZ020", "CZ042", "CZ063", "CZ072"];
