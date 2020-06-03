@@ -138,7 +138,7 @@ export function makeHtml() {
         nehody_datum: "2020-06-12",
 
         covid_celkem: Object.values(data.covid).reduce((a, b) => a + b),
-        zraneni_celkem: Object.values(data.covid).reduce((a, b) => a + b),
+        zraneni_celkem: Object.values(data.zraneni).reduce((a, b) => a + b),
 
         legenda: legenda,
 
