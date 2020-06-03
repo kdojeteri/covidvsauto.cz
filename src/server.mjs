@@ -38,6 +38,7 @@ async function updateData() {
 }
 
 updateData().then(() => {
-  app.listen(3000);
-  console.log("APP READY on port 3000");
+  const port = process.env.PORT || 3000;
+  app.listen(port);
+  console.log("APP READY on port " + port);
 }).catch(console.error);
