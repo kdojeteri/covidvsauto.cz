@@ -5,6 +5,8 @@ import {aktualizuj as updateCovid} from './sources/covid.mjs';
 import {aktualizuj as updateZraneni} from './sources/zraneni.mjs';
 import { makeHtml } from './html.mjs';
 
+var dateFns = require("date-fns")
+
 const app = new Koa();
 
  
