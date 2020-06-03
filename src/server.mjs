@@ -1,7 +1,9 @@
 import Koa from 'koa';
 import {statSync, readFileSync} from 'fs';
 import { makeHtml } from './html.mjs';
-import {initialize} from './initialize.mjs';
+import {aktualizuj as updateCovid} from './sources/covid.mjs';
+import {aktualizuj as updateZraneni} from './sources/zraneni.mjs';
+
 
 var dateFns = require("date-fns")
 
@@ -27,6 +29,14 @@ app.use(ctx => {
     console.error(e);
   }
 });
+
+
+async function initialize() {
+  console.log("INITIALIZING");
+  
+  await updateCovid();
+  await updateZraneni();
+}
 
 initialize().then(() => {
   app.listen(3000);
