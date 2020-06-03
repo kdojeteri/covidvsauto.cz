@@ -67,16 +67,31 @@ const kraje = [
 
 function makeLegenda() {
     const legenda = [];
+    let max_soucet = 1;
 
     for (const kraj of kraje) {
+        const covid = data.covid[kraj.idkey];
+        const zraneni = data.zraneni[kraj.idkey];
+
         legenda.push({
             id: "legend-" + kraj.idkey,
             name: kraj.name,
 
-            covid: data.covid[kraj.idkey],
+            covid: covid,
 
-            zraneni: data.zraneni[kraj.idkey],
+            zraneni: zraneni,
         });
+
+        const soucet = covid + zraneni;
+
+        if (soucet > max_soucet) {
+            max_soucet = soucet
+        }
+    }
+
+    for (const kraj of legenda) {
+        kraj.threat_covid = (kraj.covid / max_soucet).toFixed(3) + "em";
+        kraj.threat_zraneni = (kraj.zraneni / max_soucet).toFixed(3) + "em";
     }
 
     return legenda;
@@ -84,7 +99,7 @@ function makeLegenda() {
 
 function makeSvg() {
     const svg = {};
-    let max_soucet = 0;
+    let max_soucet = 1;
     let min_soucet = Infinity;
 
     for (const kraj of kraje) {

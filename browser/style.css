@@ -112,7 +112,19 @@ header .counter {
 
 .legend__threat-bar {
     width: 1em; height: 1em;
+    box-sizing: content-box;
     border: 1px solid currentColor;
+    position: relative;
+}
+
+.legend__threat-bar-covid {
+    width: 100%;
+    background: #BA1F33;
+}
+
+.legend__threat-bar-zraneni {
+    width: 100%;
+    background: #465362;
 }
 
 .legend__region-name {
@@ -131,4 +143,18 @@ footer {
     margin: auto;
     text-align: justify;
     padding: 10px;
+}
+
+
+
+.github-ribbon {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+@media (max-width: 750px) {
+    .github-ribbon {
+        display: none;
+    }
 }
