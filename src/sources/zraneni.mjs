@@ -26,7 +26,6 @@ export async function aktualizuj() {
     let zraneni = await response.text();
     const regex = /<b>(.*)<\/b>/;
     const vyvoz_dat = zraneni.match(regex);
-    console.log(vyvoz_dat[1]);
 
     data.datum_zraneni = vyvoz_dat[1];
 
@@ -34,13 +33,11 @@ export async function aktualizuj() {
     const vyvoz_dat2 = zraneni.matchAll(regex2);
     const celek = {};
     for (const radek of vyvoz_dat2) {
-        console.log([radek[2], radek[3], radek[4]]);
         var integer = parseInt(radek[2]);
         var integer2 = parseInt(radek[3]);
         var integer3 = parseInt(radek[4]);
         var soucet = (integer + integer2 + integer3);
         const jmeno_kraje = radek[1];
-        console.log(JSON.stringify(jmeno_kraje));
         const preloz_jmeno = slovnik_kraju[jmeno_kraje];
         celek[preloz_jmeno] = soucet;
     }
