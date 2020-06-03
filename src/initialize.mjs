@@ -11,4 +11,4 @@ async function initialize() {
     console.log(data);
 }
 
-initialize().catch(console.error)
+initialize().catch(console.error);

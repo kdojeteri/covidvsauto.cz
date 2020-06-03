@@ -32,6 +32,7 @@ a, a:hover, a:active, a:visited {
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .container > * {
@@ -39,20 +40,23 @@ a, a:hover, a:active, a:visited {
 }
 
 .map {
-    max-width: 960px;
+    flex: 1;
+    min-width: 320px;
+    max-width: 750px;
 }
 
 
 header {
-    width: 960px;
+    width: 750px;
     
     margin-bottom: 40px;
     padding: 0 10px;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 750px) {
     header {  
-        width: 100%;
+        width: auto;
+        text-align: center;
     }
 
     footer {
@@ -123,7 +127,7 @@ header .counter {
 
 footer {
     font-size: small;
-    max-width: 960px;
+    max-width: 750px;
     margin: auto;
     text-align: justify;
     padding: 10px;

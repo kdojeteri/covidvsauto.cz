@@ -1,10 +1,36 @@
 export const data = {
     zraneni: {
-        
+        praha: 1,
+        stredocesky: 2,
+        jihocesky: 3,
+        plzensky: 4,
+        karlovarsky: 5,
+        ustecky: 6,
+        liberecky: 7,
+        kralovehradecky: 8,
+        pardubicky: 9,
+        vysocina: 10,
+        jihomoravsky: 11,
+        olomoucky: 12,
+        moravskoslezsky: 13,
+        zlinsky: 14
     },
     datum_zraneni: new Date(),
     covid: {
-
+        praha: 14,
+        stredocesky: 13,
+        jihocesky: 12,
+        plzensky: 11,
+        karlovarsky: 10,
+        ustecky: 9,
+        liberecky: 8,
+        kralovehradecky: 7,
+        pardubicky: 6,
+        vysocina: 5,
+        jihomoravsky: 4,
+        olomoucky: 3,
+        moravskoslezsky: 2,
+        zlinsky: 1
     },
     datum_covid: new Date(),
 }
