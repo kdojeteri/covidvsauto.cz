@@ -19,7 +19,7 @@ Stránka COVID-19 vs Autonehody si dává za cíl ukazovat poměr mezi zraněný
 * [x] Upravit velikost teček v krajích v závislosti na poměru covid/zranění
 * [x] Upravit počet teček v krajích v závislosti na celkovém počtu covid + zranění
 * [x] Vypsat počty v tabulce krajů
-* [ ] Přidat DNS záznam na covidvsauto.cz
+* [x] Přidat DNS záznam na covidvsauto.cz
 * [ ] Průběžně (každý den) stahovat informace o covid-19 ze včerejška
 * [ ] Průběžně (každý den) stahovat informace o dopravních nehodách ze včerejška
 * [ ] Zvýrazňovat řádek v tabulce když na mapě najedeme na jeho kraj
