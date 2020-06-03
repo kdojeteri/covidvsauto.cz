@@ -1,5 +1,22 @@
-import {data} from './data.mjs';
+import { data } from './data.mjs';
 import fetch from 'node-fetch';
+
+let slovnik_kraju = {
+    " hl. m. Praha\">V&#218;SC - hl. m. Praha": "praha", 
+    " Středočeský": "stredocesky", 
+    " Jihočeský": "jihocesky", 
+    " Plzeňský": "plzensky", 
+    " Karlovarský": "karlovarsky", 
+    " Ústecký": "ustecky",
+    " Liberecký": "liberecky", 
+    " Královéhradecký": "kralovehradecky", 
+    " Pardubický": "pardubicky", 
+    " Vysočina": "vysocina", 
+    " Jihomoravský": "jihomoravsky", 
+    " Olomoucký": "olomoucky",
+    " Moravskoslezský": "moravskoslezsky", 
+    " Zlínský": "zlinsky"
+};
 
 export async function aktualizuj() {
     // Stáhni zdrojová data (HTML stránku):
@@ -13,13 +30,26 @@ export async function aktualizuj() {
 
     data.datum_zraneni = vyvoz_dat[1];
 
-    const regex2 = /VÚSC -(.*)<(.|\n)*?Label2">(\d*)<(.|\n)*?Label3">(\d*)<(.|\n)*?Label4">(\d*)/ ;
+    const regex2 = /VÚSC -(.*?)<.*?Label2">(\d*)<.*?Label3">(\d*)<.*?Label4">(\d*)/gs;
     const vyvoz_dat2 = zraneni.matchAll(regex2);
+    const celek = {};
     for (const radek of vyvoz_dat2) {
-        console.log(radek);
+        console.log([radek[2], radek[3], radek[4]]);
+        var integer = parseInt(radek[2]);
+        var integer2 = parseInt(radek[3]);
+        var integer3 = parseInt(radek[4]);
+        var soucet = (integer + integer2 + integer3);
+        const jmeno_kraje = radek[1];
+        console.log(JSON.stringify(jmeno_kraje));
+        const preloz_jmeno = slovnik_kraju[jmeno_kraje];
+        celek[preloz_jmeno] = soucet;
     }
 
-    
+    data.zraneni = celek;
+    }
+
+
+
 
 
     // Pomocí regexu vytáhni string datumu ze zdrojové věty:
@@ -33,6 +63,5 @@ export async function aktualizuj() {
 
     // Pro každý kraj: 
     //     Nastav počet zranění v kraji na součet úmrtí, těžkých a lehkých.
-    
+
     // Nastav data.zraneni na slovník počtů zranění podle kraje
-}
