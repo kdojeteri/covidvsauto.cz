@@ -5,11 +5,7 @@ import {aktualizuj as updateCovid} from './sources/covid.mjs';
 import {aktualizuj as updateZraneni} from './sources/zraneni.mjs';
 
 
-var dateFns = require("date-fns")
-
 const app = new Koa();
-
-
  
 // response
 app.use(ctx => {
@@ -31,14 +27,14 @@ app.use(ctx => {
 });
 
 
-async function initialize() {
-  console.log("INITIALIZING");
-  
+async function updateData() {
+  console.log("UPDATING DATA");
+
   await updateCovid();
   await updateZraneni();
 }
 
-initialize().then(() => {
+updateData().then(() => {
   app.listen(3000);
   console.log("APP READY on port 3000");
-});
+}).catch(console.error);
