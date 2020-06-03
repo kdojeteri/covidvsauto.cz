@@ -1,13 +1,14 @@
 import Koa from 'koa';
-import {statSync, readFileSync} from 'fs';
+import { statSync, readFileSync } from 'fs';
 import { makeHtml } from './html.mjs';
-import {aktualizuj as updateCovid} from './sources/covid.mjs';
-import {aktualizuj as updateZraneni} from './sources/zraneni.mjs';
-import {data} from './sources/data.mjs';
+import { aktualizuj as updateCovid } from './sources/covid.mjs';
+import { aktualizuj as updateZraneni } from './sources/zraneni.mjs';
+import { data } from './sources/data.mjs';
+import dateFns from 'date-fns';
 
 
 const app = new Koa();
- 
+
 // response
 app.use(ctx => {
   console.log("REQUESTING", ctx.path);
@@ -35,7 +36,26 @@ async function updateData() {
   await updateZraneni();
 
   console.log("Got data", data);
+
+  const nextRunDate = dateFns.set(
+    dateFns.addDays(
+      new Date(),
+      1
+    ),
+    { hours: 4, minutes: 0, seconds: 0, milliseconds: 0 }
+  );
+
+  const ms = dateFns.differenceInMilliseconds(nextRunDate, new Date());
+
+  setTimeout(
+    updateData,
+    ms
+  );
+
+  console.log("data will update on " + dateFns.formatISO(nextRunDate));
 }
+
+
 
 updateData().then(() => {
   const port = process.env.PORT || 3000;
