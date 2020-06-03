@@ -45,6 +45,14 @@ a, a:hover, a:active, a:visited {
     max-width: 750px;
 }
 
+.map figcaption {
+    margin-top: 10px;
+    font-size: small;
+    font-style: italic;
+    text-align: center;
+    
+}
+
 
 header {
     width: 750px;
@@ -94,6 +102,14 @@ header .counter {
     padding: 8px;
 }
 
+@media (max-width: 380px) {
+    .counter {
+        font-size: 16px;
+    }
+    .counter__label {
+        width: 230px;
+    }
+}
 
 
 .legend {
@@ -112,6 +128,12 @@ header .counter {
 
 .legend__header {
     font-size: small;
+}
+
+@media (max-width: 380px) {
+    .legend__header {
+        font-size: x-small;
+    }
 }
 
 .legend__threat-bar {
