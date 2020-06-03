@@ -1,13 +1,12 @@
 import Koa from 'koa';
 import {statSync, readFileSync} from 'fs';
-import {data} from './sources/data.mjs';
-import {aktualizuj as updateCovid} from './sources/covid.mjs';
-import {aktualizuj as updateZraneni} from './sources/zraneni.mjs';
 import { makeHtml } from './html.mjs';
+import {initialize} from './initialize.mjs';
 
 var dateFns = require("date-fns")
 
 const app = new Koa();
+
 
  
 // response
@@ -28,6 +27,8 @@ app.use(ctx => {
     console.error(e);
   }
 });
- 
-app.listen(3000);
-console.log("APP READY on port 3000");
+
+initialize().then(() => {
+  app.listen(3000);
+  console.log("APP READY on port 3000");
+});

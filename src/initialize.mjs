@@ -4,7 +4,9 @@ import {data} from './sources/data.mjs';
 import {aktualizuj as updateCovid} from './sources/covid.mjs';
 import {aktualizuj as updateZraneni} from './sources/zraneni.mjs';
 
-async function initialize() {
+export async function initialize() {
+    console.log("INITIALIZING");
+
     await updateCovid();
     await updateZraneni();
 
