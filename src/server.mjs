@@ -3,6 +3,7 @@ import {statSync, readFileSync} from 'fs';
 import { makeHtml } from './html.mjs';
 import {aktualizuj as updateCovid} from './sources/covid.mjs';
 import {aktualizuj as updateZraneni} from './sources/zraneni.mjs';
+import {data} from './sources/data.mjs';
 
 
 const app = new Koa();
