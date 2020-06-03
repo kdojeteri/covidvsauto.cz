@@ -100,7 +100,7 @@ function makeSvg() {
         if (soucet < min_soucet) {
             min_soucet = soucet
         }
-        
+
         const pomer_covid = covid / soucet;
 
         svg[kraj.idkey] = {
@@ -115,9 +115,11 @@ function makeSvg() {
         const soucet = covid + zraneni;
 
         const patternScale = (
-            (soucet - min_soucet) 
-            / 
-            Math.max(max_soucet - min_soucet, 1)
+            1 - (
+                (soucet - min_soucet)
+                /
+                Math.max(max_soucet - min_soucet, 1)
+            )
         ) * 10 + 5; // in range 5 - 15
 
         svg[kraj.idkey].scale = patternScale.toFixed(3)
@@ -135,9 +137,9 @@ export function makeHtml() {
         covid_datum: "2020-06-12",
         nehody_datum: "2020-06-12",
 
-        covid_celkem: Object.values(data.covid).reduce((a,b) => a + b),
-        zraneni_celkem: Object.values(data.covid).reduce((a,b) => a + b),
-        
+        covid_celkem: Object.values(data.covid).reduce((a, b) => a + b),
+        zraneni_celkem: Object.values(data.covid).reduce((a, b) => a + b),
+
         legenda: legenda,
 
         svg: svg
