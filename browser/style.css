@@ -106,6 +106,10 @@ header .counter {
     border-width: 4px 10px;
 }
 
+.legend__row.highlight {
+    background: white;
+}
+
 .legend__header {
     font-size: small;
 }
