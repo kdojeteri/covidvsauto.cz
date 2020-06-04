@@ -186,6 +186,7 @@ export async function renderFiles() {
 
     await toImg.from(svg).toJpeg({
         path: "browser/snapshot.jpg",
-        quality: 90        
+        quality: 90,
+        width: 1200
     });
 }
