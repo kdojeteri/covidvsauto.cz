@@ -2,9 +2,13 @@ import { data } from "./sources/data.mjs";
 import { readFileSync } from 'fs';
 import Handlebars from 'handlebars';
 
-const indexHtml = readFileSync("browser/index.html");
+const htmlString = readFileSync("views/html.hbs").toString();
 
-const template = Handlebars.compile(indexHtml.toString());
+const htmlTemplate = Handlebars.compile(htmlString);
+
+const svgString = readFileSync("views/svg.hbs").toString();
+
+const svgTemplate = Handlebars.compile(svgString);
 
 const kraje = [
     {
@@ -65,7 +69,7 @@ const kraje = [
     }
 ]
 
-function makeLegenda() {
+function makeLegendaData() {
     const legenda = [];
     let max_soucet = 1;
 
@@ -97,7 +101,7 @@ function makeLegenda() {
     return legenda;
 }
 
-function makeSvg() {
+function makeSvgData() {
     const svg = {};
     let max_soucet = 1;
     let min_soucet = Infinity;
@@ -144,9 +148,9 @@ function makeSvg() {
 }
 
 export function makeHtml() {
-    const legenda = makeLegenda();
+    const legenda = makeLegendaData();
 
-    const svg = makeSvg();
+    const svg = makeSvgData();
 
     const templateData = {
         covid_datum: data.datum_covid,
@@ -160,7 +164,15 @@ export function makeHtml() {
         svg: svg
     };
 
-    console.log(templateData);
+    return htmlTemplate(templateData);
+}
 
-    return template(templateData);
+export function makeSvg() {
+    const svg = makeSvgData()
+
+    const templateData = {
+        svg
+    };
+
+    return svgTemplate(templateData);
 }

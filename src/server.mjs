@@ -1,10 +1,7 @@
 import Koa from 'koa';
 import { statSync, readFileSync } from 'fs';
 import { makeHtml } from './html.mjs';
-import { aktualizuj as updateCovid } from './sources/covid.mjs';
-import { aktualizuj as updateZraneni } from './sources/zraneni.mjs';
-import { data } from './sources/data.mjs';
-import dateFns from 'date-fns';
+import { updateData } from './sources/updater.mjs';
 
 
 const app = new Koa();
@@ -29,31 +26,6 @@ app.use(ctx => {
 });
 
 
-async function updateData() {
-  console.log("UPDATING DATA");
-
-  await updateCovid();
-  await updateZraneni();
-
-  console.log("Got data", data);
-
-  const nextRunDate = dateFns.set(
-    dateFns.addDays(
-      new Date(),
-      1
-    ),
-    { hours: 4, minutes: 0, seconds: 0, milliseconds: 0 }
-  );
-
-  const ms = dateFns.differenceInMilliseconds(nextRunDate, new Date());
-
-  setTimeout(
-    updateData,
-    ms
-  );
-
-  console.log("data will update on " + dateFns.formatISO(nextRunDate));
-}
 
 
 

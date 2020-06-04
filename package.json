@@ -6,6 +6,7 @@
   "scripts": {
     "init": "node --experimental-modules src/initialize.mjs",
     "start": "node --experimental-modules src/server.mjs",
+    "xss": "node --experimental-modules src/XSS.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +23,9 @@
     "date-fns": "^2.14.0",
     "handlebars": "^4.7.6",
     "koa": "^2.12.0",
-    "node-fetch": "^2.6.0"
+    "koa-router": "^9.0.1",
+    "koa-send": "^5.0.0",
+    "node-fetch": "^2.6.0",
+    "svgexport": "^0.4.0"
   }
 }
