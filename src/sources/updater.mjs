@@ -1,8 +1,9 @@
 
 import dateFns from 'date-fns';
-import data from './data.mjs';
-import {updateCovid} from './covid.mjs';
-import {updateZraneni} from './zraneni.mjs';
+import { data } from './data.mjs';
+import { aktualizuj as updateCovid } from './covid.mjs';
+import { aktualizuj as updateZraneni } from './zraneni.mjs';
+import { renderFiles } from '../makeViews.mjs';
 
 function scheduleUpdate() {
     const tomorrow = dateFns.addDays(new Date(), 1);
@@ -19,10 +20,11 @@ function scheduleUpdate() {
         ms
     );
 
-    console.log("data will update on " + dateFns.formatISO(nextRunDate));
+    return dateFns.format(nextRunDate, "d. M. yyyy HH:mm")
+
 }
 
-async function updateData() {
+export async function updateData() {
     console.log("UPDATING DATA");
 
     await updateCovid();
@@ -30,5 +32,11 @@ async function updateData() {
 
     console.log("Got data", data);
 
-    scheduleUpdate();
+    console.log("RENDERING TEMPLATES");
+
+    await renderFiles();
+
+    const nextDate = scheduleUpdate();
+
+    console.log("data will update on " + nextDate);
 }

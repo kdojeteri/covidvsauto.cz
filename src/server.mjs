@@ -1,32 +1,14 @@
 import Koa from 'koa';
+import serveStatic from 'koa-static';
 import { statSync, readFileSync } from 'fs';
-import { makeHtml } from './html.mjs';
+import { makeHtml } from './makeViews.mjs';
 import { updateData } from './sources/updater.mjs';
 
 
 const app = new Koa();
 
-// response
-app.use(ctx => {
-  console.log("REQUESTING", ctx.path);
 
-  try {
-    if (statSync("browser" + ctx.path).isFile()) {
-      const body = readFileSync("browser" + ctx.path);
-
-      ctx.body = body;
-    } else {
-      ctx.type = "text/html"; // MIME
-      ctx.body = makeHtml();
-    }
-  } catch (e) {
-    ctx.status = 404;
-    console.error(e);
-  }
-});
-
-
-
+app.use(serveStatic("browser"));
 
 
 updateData().then(() => {
