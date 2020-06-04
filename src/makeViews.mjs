@@ -1,7 +1,7 @@
 import { data } from "./sources/data.mjs";
 import { readFileSync, promises as fs } from 'fs';
 import Handlebars from 'handlebars';
-import svgexport from "svgexport";
+import toImg from "svg-to-img";
 
 const htmlString = readFileSync("views/html.hbs").toString();
 
@@ -183,15 +183,9 @@ export async function renderFiles() {
     await fs.writeFile("browser/index.html", html);
 
     const svg = makeSvg();
-    await fs.writeFile("browser/snapshot.svg", svg);
 
-    await new Promise(resolve => {
-        svgexport.render(
-            {
-                input: ["browser/snapshot.svg"],
-                output: [["browser/snapshot.jpg", "90%", "1200:"]]
-            },
-            resolve
-        )
-    })
+    await toImg.from(svg).toJpeg({
+        path: "browser/snapshot.jpg",
+        quality: 90        
+    });
 }
